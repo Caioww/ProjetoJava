@@ -35,12 +35,12 @@ public class Caminhao extends Veiculo{
 	 * @param d
 	 */
 	public void move(Caminhao d) {
-		mover = aleatorio.nextInt(4); /// Gerar posição aleatória , sendo cada numero é equivalente a uma direção de 0 á 3.
+		mover = aleatorio.nextInt(4); /// < Gerar posição aleatória , sendo cada numero é equivalente a uma direção de 0 á 3.
 		
 		/**
 		 * Verificação do random para movimentar o caminhão ,com a utilização de getters
 		 */
-		if(mover == 0) {
+		if(mover == 0) {//<If para verificar se a posição que ira se movimentar tem valor igual a 0, caso não irá cair nas outras condições.
 			int x = d.getX();
 			x = x + 1;
 			d.andaX(verificaX(x));
@@ -68,6 +68,7 @@ public class Caminhao extends Veiculo{
 
 	/**
 	 * Função para verificar se ao caminhão chegou ao limite do mapa em X e reseta a posição para a linha ou coluna inicial dependendo de qual eixo foi movimentado , nesse caso o eixo X.
+	 * 
 	 * @param x
 	 * @return
 	 */
