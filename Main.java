@@ -1,14 +1,20 @@
 public class Main {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Mundo m = new Mundo();
 
 		m.geraVeiculos();
+
 		m.desenhaMundo();
-		m.atualizaMundo();
-		while(true){
-		m.atualizaMundo();
+		
+		int i = 0;
+		while (i == 0) {
+			m.atualizaMundo();
+			Thread.sleep(10);  
 		}
+		
+	
+
 
 	}
 
