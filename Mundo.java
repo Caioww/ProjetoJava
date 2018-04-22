@@ -1,8 +1,10 @@
+import java.util.ArrayList;
+
 public class Mundo {
 	Veiculo v = new Veiculo();
-	Carro[] c = new Carro[1000];
-	Caminhao[] d = new Caminhao[1000];
-	Moto[] m = new Moto[1000];
+	ArrayList <Carro> ca = new ArrayList<>();
+	ArrayList <Caminhao> da = new ArrayList<>();
+	ArrayList <Moto> ma = new ArrayList<>();
 
 	public int mapa[][] = {{1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
             				{1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
@@ -37,14 +39,24 @@ public class Mundo {
 	
 	public void geraVeiculos() {
 		for(int i = 0; i < 10; i++) {
-			c[i] = new Carro((v.setX()+1), (v.setY()+1), 2, "verde");
-			d[i] = new Caminhao((v.setX()+1), (v.setY()+1), 2, "amarelo");
-			m[i] = new Moto((v.setX()+1), (v.setY()+1), 2, "azul");
-			//System.out.print(c[i].getX());
-			//System.out.println(" " + c[i].getY());
-		}
-		
-		
+			ca.add(new Carro((v.setX()+1), (v.setY()+1), 2, "verde"));
+			while (mapa[ca.get(i).getX()][ca.get(i).getY()] == 2) {
+				ca.get(i).setX();
+				ca.get(i).setY();
+			}
+
+			da.add(new Caminhao((v.setX()+1), (v.setY()+1), 1, "verde"));
+			while (mapa[da.get(i).getX()][da.get(i).getY()] == 2) {
+				da.get(i).setX();
+				da.get(i).setY();
+			}
+
+			ma.add(new Moto((v.setX()+1), (v.setY()+1), 3, "azul"));
+			while (mapa[ma.get(i).getX()][ma.get(i).getY()] == 2) {
+				ma.get(i).setX();
+				ma.get(i).setY();
+			}
+		}		
 	}
 	
 	public void refazMapa() {
@@ -56,84 +68,50 @@ public class Mundo {
 			}
 		}
 		
-		for(int a = 0; a < 10; a++) {
-			int x = c[a].getX();
-			int y = c[a].getY();
-			int b = d[a].getX();
-			int c = d[a].getY();
-			int e = m[a].getX();
-			int f = m[a].getY();
+		for (int a = 0; a < ca.size(); a++) {
+			int xa = ca.get(a).getX();
+			int ya = ca.get(a).getY();
 			
+
 			for(int i = 0; i<30; i++) {
 				for(int j = 0; j < 60; j++) {
-					if(i == x && j == y) {
-						if(mapa[i][j] == 2)
-						{
-							
-						}
-						else {
-							mapa[i++][j] = 3;
-						}
-						
-					}
-					
-					if(i == b && j == c) {
-						if(mapa[i][j] == 2)
-						{
-							
-						}
-						else {
-							mapa[i++][j] = 4;
-						}
-						
-					}
-					
-					if(i == e && j == f) {
-						if(mapa[i][j] == 2)
-						{
-							
-						}
-						else {
-							mapa[i++][j] = 5;
-						}
+					if(i == xa && j == ya) {
+						mapa[i][j] = 3;
 					}
 				}
 			}
 		}
+		
+		for(int a  = 0; a < da.size(); a++) {
+			int ba = da.get(a).getX();
+			int ca = da.get(a).getY();
+			
+			for(int i = 0; i<30; i++) {
+				for(int j = 0; j < 60; j++) {
+					if(i == ba && j == ca) {
+						mapa[i][j] = 4;
+					}
+				}
+			}
+		}
+		
+		for(int a = 0; a < ma.size(); a ++) {
+			int ea = ma.get(a).getX();
+			int fa = ma.get(a).getY();
+			
+			for(int i = 0; i<30; i++) {
+				for(int j = 0; j < 60; j++) {
+					if(i == ea && j == fa) {
+						mapa[i][j] = 5;
+					}
+				}
+			}	
+		}
+		
 	}
 	
 	public void desenhaMundo() {
-		/*for(int i = 0; i<30; i++) {
-			for(int j = 0; j < 60; j++) {
-				System.out.print(mapa[i][j]);
-			}
-			System.out.println("");
-		}
 		
-		System.out.println("");*/
-		
-		
-		
-		
-		
-	/*	for(int i = 0; i < 10; i++) {
-			if(c[i].getX() == d[i].getX() && c[i].getY() == d[i].getY()) {
-				c[i].setX();
-				c[i].setY();
-			}
-		}*/
-		
-		
-		
-		
-		/*for(int i = 0; i<30; i++) {
-			for(int j = 0; j < 60; j++) {
-				System.out.print(mapa[i][j]);
-			}
-			System.out.println("");
-		}
-		*/
-		//for (int a = 0; a < 10; a++) {
 		int carros = 0;
 		int motos = 0;
 		int caminhoes = 0;
@@ -144,33 +122,26 @@ public class Mundo {
 						System.out.print("1");
 					}
 					else if(mapa[i][j] == 0) {
-						int x = 0;
-						
-						/*if(i == c[x].getX() && j == c[x].getY()) {
-								System.out.print("C");	
-								//System.out.print(c[x].getX());	
-								//System.out.print(c[x].getY());
-								x++;
-							}
-							else {*/
-								System.out.print(" ");
-							//}
-							
-						}
+						System.out.print(" ");
+					}
 					
 					else if(mapa[i][j] == 2) {
 						System.out.print("X");
+						//System.out.print("\u001b[42m \033[0m");
 					}
 					else if(mapa[i][j] == 3){
 						System.out.print("C");
+						//System.out.print("\u001b[44m \033[0m");
 						carros++;
 					}
 					else if(mapa[i][j] == 4){
 						System.out.print("D");
+						//System.out.print("\u001b[43;1m \033[0m");
 						caminhoes++;
 					}
 					else if(mapa[i][j] == 5){
 						System.out.print("M");
+						//System.out.print("\u001b[41m \033[0m");
 						motos++;
 					}
 					
@@ -178,35 +149,53 @@ public class Mundo {
 				
 				System.out.println("");
 			}	
+			
 			System.out.println("Número de carros: " + carros);
 			System.out.println("Número de caminhões: " + caminhoes);
 			System.out.println("Número de motos: " + motos);
-		//}
-		
-		
-		
 	}
 	
 	public void atualizaMundo() {
-		for(int i = 0; i < 10; i ++) {
-			//Carro ca[] = new Carro[1000];
-			//ca[i].setXNovamente(c[i].getX());
-			/*System.out.print(c[i].getX() + " ");
-			System.out.println(c[i].getY());
-			System.out.println("");*/
-			
-			c[i].move(c[i]);
-			d[i].move(d[i]);
-			m[i].move(m[i]);
-			
-			/*System.out.print(c[i].getX() + " ");
-			System.out.println(c[i].getY());
-			System.out.println("");*/
-			
+		for(int i = 0; i < ca.size(); i++) {
+			ca.get(i).move(ca.get(i));
 		}
 		
+		for (int i = 0; i < da.size(); i ++) {
+			da.get(i).move(da.get(i));
+		}
+		
+		for (int i = 0; i < ma.size(); i ++) {
+			ma.get(i).move(ma.get(i));
+		}
+		
+		detectaColisao();
 		refazMapa();
 		desenhaMundo();
 	}
 	
+	public void detectaColisao() {
+		for (int i = 0; i < ca.size(); i ++) {
+			for (int j = 0; j < ca.size(); j++) {
+				if(ca.get(j).getX() == ca.get(i).getX() && ca.get(j).getY() == ca.get(i).getX()) {
+						ca.remove(i);
+				}
+			}
+		}
+		
+		for (int i = 0; i < da.size(); i ++) {
+			for (int j = 0; j < da.size(); j++) {
+				if(da.get(j).getX() == da.get(i).getX() && da.get(j).getY() == da.get(i).getX()) {
+						da.remove(i);
+				}
+			}
+		}
+		
+		for (int i = 0; i < ma.size(); i ++) {
+			for (int j = 0; j < ma.size(); j++) {
+				if(ma.get(j).getX() == ma.get(i).getX() && ma.get(j).getY() == ma.get(i).getX()) {
+						ma.remove(i);
+				}
+			}
+		}
+	}
 }
