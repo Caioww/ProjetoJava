@@ -49,7 +49,7 @@ public class Veiculo {
 	 * @return O valor aleatório gerado para X
 	 */
 	public int setX() {
-		x = r.nextInt(28);
+		x = aleatorio.nextInt(28);
 		return x;
 		
 	}
@@ -78,7 +78,7 @@ public class Veiculo {
 	 * @return O valor aleatório gerado para Y
 	 */
 	public int setY() {
-		y = r.nextInt(58);
+		y = aleatorio.nextInt(58);
 		return y;
 	}
 	
@@ -131,5 +131,4 @@ public class Veiculo {
 	private int velocidade; /// Variavel para velocidade
 	private boolean fabrica; /// Variavel boolean para verificar se o veiculo está ou não em uma fabrica
 	private String cor; /// Cor do veículo
-}
 }
