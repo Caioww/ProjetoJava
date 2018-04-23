@@ -34,7 +34,7 @@ public class Carro extends Veiculo{
 	 * Função que movimenta o carro, recebendo um objeto da própria classe como parâmetro para armazenar as posições dos eixos individualmente
 	 * @param c
 	 */
-	public void move(Carro car) {
+	public void movimento(Carro car) {
 		mover = aleatorio.nextInt(4); ///<Gerar posição aleatória , sendo cada numero é equivalente a uma direção de 0 á 3.
 		
 		/**
