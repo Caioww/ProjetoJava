@@ -43,7 +43,7 @@ public class Carro extends Veiculo{
 		if(mover == 0) {
 			int x = car.getX(); 
 			x = x + 2; 
-			car.andaX(verificaX(x)); 
+			car.moveX(analisarX(x)); 
 		}
 		
 	
@@ -51,21 +51,36 @@ public class Carro extends Veiculo{
 		if(mover == 1) {
 			int x = car.getX();
 			x = x - 2;
-			car.andaX(verificaX(x));
+			car.moveX(analisarX(x));
 		}
 		
 		if(mover == 2) {
 			int y = car.getY();
 			y = y + 2;
-			car.andaY(verificaY(y));
+			car.moveY(analisarY(y));
 		}
 		
 		if(mover == 3) {
 			int y = car.getY();
 			y = y - 2;
-			car.andaY(verificaY(y));
+			car.moveY(analisarY(y));
 		}
 		
+	}
+	
+		/**
+	 * Função para verificar se o carro chegou ao limite da matriz(mapa) em Y e reseta a coordenada para a posição inicial
+	 * @param y
+	 * @return
+	 */
+	public int analisarY(int y) {
+		if (y >= 59) {
+			y = 1;
+		}
+		if(y <= 0) {
+			y = 58;
+		}
+		return y;
 	}
 	
 	/**
@@ -73,7 +88,7 @@ public class Carro extends Veiculo{
 	 * @param x
 	 * @return
 	 */
-	public int verificaX(int x) {
+	public int analisarX(int x) {
 		if (x >= 29) {
 			x = 1;
 		}
@@ -83,20 +98,7 @@ public class Carro extends Veiculo{
 		return x;
 	}
 	
-	/**
-	 * Função para verificar se o carro chegou ao limite da matriz(mapa) em Y e reseta a coordenada para a posição inicial
-	 * @param y
-	 * @return
-	 */
-	public int verificaY(int y) {
-		if (y >= 59) {
-			y = 1;
-		}
-		if(y <= 0) {
-			y = 58;
-		}
-		return y;
-	}
+
 
 	
 
