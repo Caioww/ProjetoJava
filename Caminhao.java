@@ -34,34 +34,34 @@ public class Caminhao extends Veiculo{
 	 * Função para movimentar o caminhão para posições aleatórias na Matriz , recebendo um objeto da própria classe como parâmetro.
 	 * @param d
 	 */
-	public void move(Caminhao d) {
+	public void move(Caminhao cam) {
 		mover = aleatorio.nextInt(4); /// < Gerar posição aleatória , sendo cada numero é equivalente a uma direção de 0 á 3.
 		
 		/**
 		 * Verificação do random para movimentar o caminhão ,com a utilização de getters
 		 */
 		if(mover == 0) {//<If para verificar se a posição que ira se movimentar tem valor igual a 0, caso não irá cair nas outras condições.
-			int x = d.getX();
+			int x = cam.getX();
 			x = x + 1;
-			d.andaX(verificaX(x));
+			cam.andaX(verificaX(x));
 		}
 		
 		if(mover == 1) {
-			int x = d.getX();
+			int x = cam.getX();
 			x = x - 1;
-			d.andaX(verificaX(x));
+			cam.andaX(verificaX(x));
 		}
 		
 		if(mover == 2) {
 			int y = d.getY();
 			y = y + 1;
-			d.andaY(verificaY(y));
+			cam.andaY(verificaY(y));
 		}
 		
 		if(mover == 3) {
-			int y = d.getY();
+			int y = cam.getY();
 			y = y - 1;
-			d.andaY(verificaY(y));
+			cam.andaY(verificaY(y));
 		}
 	
 	}
@@ -97,6 +97,6 @@ public class Caminhao extends Veiculo{
 		return y;
 	}
 	
-	private int mov; /// Variável para movimentar o caminhão 
+	private int mover; /// Variável para movimentar o caminhão 
 
 }
