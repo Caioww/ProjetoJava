@@ -33,7 +33,7 @@ public class Moto extends Veiculo{
 	
 	/**
 	 * Função que movimenta a moto, recebendo um objeto da própria classe como parâmetro
-	 * @param m
+	 * @param mot
 	 */
 	public void movimento(Moto mot) {
 		mover = aleatorio.nextInt(4); /// Gerando um número aleatório para movimentação do veículo em 4 direções
