@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Mundo {
 	/**
-	 * Instanciando a classe veículo para utilização de atributos da mesma no Mundo
+	 * Instanciando a classe veículo para utilização de atributos da Classe no Mundo
 	 */
 	Veiculo v = new Veiculo();
 	/**
@@ -155,7 +155,7 @@ public class Mundo {
 	}
 	
 	/**
-	 * Função para redesenhar o mundo com os veiculos em suas posições e etc
+	 * Função para redesenhar o mundo com os veiculos em suas posições
 	 */
 	public void desenhandoMundo() {
 		
