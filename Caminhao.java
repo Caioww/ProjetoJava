@@ -33,7 +33,7 @@ public class Caminhao extends Veiculo{
 	
 	/**
 	 * Função para movimentar o caminhão para posições aleatórias na Matriz , recebendo um objeto da própria classe como parâmetro.
-	 * @param d
+	 * @param cam
 	 */
 	public void movimento(Caminhao cam) {
 		mover = aleatorio.nextInt(4); /// < Gerar posição aleatória , sendo cada numero é equivalente a uma direção de 0 á 3.
