@@ -45,36 +45,50 @@ public class Moto extends Veiculo{
 		if(mover == 0) {
 			int x = mot.getX();
 			x = x + 3;
-			mot.andaX(verificaX(x));
+			mot.moveX(analisarX(x));
 		}
 		
 		if(mover == 1) {
 			int x = mot.getX();
 			x = x - 3;
-			mot.andaX(verificaX(x));
+			mot.moveX(analisarX(x));
 		}
 		
 		if(mover == 2) {
 			int y = mot.getY();
 			y = y + 3;
-			mot.andaY(verificaY(y));
+			mot.moveY(analisarY(y));
 		}
 		
 		if(mover == 3) {
 			int y = mot.getY();
 			y = y - 3;
-			mot.andaY(verificaY(y));
+			mot.moveY(analisarY(y));
 		}
 	
 	}
 	
-
+	/**
+	 * Função para verificar se a moto chegou ao limite do mapa(Matriz) em Y e reseta a coordenada para a posição inicial
+	 * @param y
+	 * @return
+	 */
+	public int analisarY(int y) {
+		if (y >= 59) {
+			y = 1;
+		}
+		if(y <= 0) {
+			y = 58;
+		}
+		return y;
+	}
+	
 	/**
 	 * Função para verificar se a moto chegou ao limite do mapa(Matriz) em X e reseta a coordenada para a posição inicial
 	 * @param x
 	 * @return
 	 */
-	public int verificaX(int x) {
+	public int analisarX(int x) {
 		if (x >= 29) {
 			x = 1;
 		}
@@ -84,20 +98,7 @@ public class Moto extends Veiculo{
 		return x;
 	}
 	
-	/**
-	 * Função para verificar se a moto chegou ao limite do mapa(Matriz) em Y e reseta a coordenada para a posição inicial
-	 * @param y
-	 * @return
-	 */
-	public int verificaY(int y) {
-		if (y >= 59) {
-			y = 1;
-		}
-		if(y <= 0) {
-			y = 58;
-		}
-		return y;
-	}
+
 	
 	private int mover; /// Variável de movimentação 
 	
