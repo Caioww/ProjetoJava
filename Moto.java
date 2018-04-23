@@ -35,7 +35,7 @@ public class Moto extends Veiculo{
 	 * Função que movimenta a moto, recebendo um objeto da própria classe como parâmetro
 	 * @param m
 	 */
-	public void mover(Moto mot) {
+	public void movimento(Moto mot) {
 		mover = aleatorio.nextInt(4); /// Gerando um número aleatório para movimentação do veículo em 4 direções
 		
 		
@@ -49,21 +49,21 @@ public class Moto extends Veiculo{
 		}
 		
 		if(mover == 1) {
-			int x = moto.getX();
+			int x = mot.getX();
 			x = x - 3;
-			moto.andaX(verificaX(x));
+			mot.andaX(verificaX(x));
 		}
 		
 		if(mover == 2) {
-			int y = moto.getY();
+			int y = mot.getY();
 			y = y + 3;
-			moto.andaY(verificaY(y));
+			mot.andaY(verificaY(y));
 		}
 		
-		if(mov == 3) {
-			int y = m.getY();
+		if(mover == 3) {
+			int y = mot.getY();
 			y = y - 3;
-			moto.andaY(verificaY(y));
+			mot.andaY(verificaY(y));
 		}
 	
 	}
@@ -99,7 +99,7 @@ public class Moto extends Veiculo{
 		return y;
 	}
 	
-	private int mover; /// Variável para movimentar a moto
+	private int mover; /// Variável de movimentação 
 	
 
 }
