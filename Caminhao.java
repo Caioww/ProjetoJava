@@ -1,4 +1,4 @@
-import java.util.Random;
+
 
 /**
  * Classe que gera um veículo do tipo Caminhão
@@ -7,6 +7,7 @@ import java.util.Random;
  * 
  * @see Veiculo
  */
+import java.util.Random;
 
 public class Caminhao extends Veiculo{
 	Veiculo v = new Veiculo();
@@ -43,27 +44,42 @@ public class Caminhao extends Veiculo{
 		if(mover == 0) {//<If para verificar se a posição que ira se movimentar tem valor igual a 0, caso não irá cair nas outras condições.
 			int x = cam.getX();
 			x = x + 1;
-			cam.andaX(verificaX(x));
+			cam.moveX(analisarX(x));
 		}
 		
 		if(mover == 1) {
 			int x = cam.getX();
 			x = x - 1;
-			cam.andaX(verificaX(x));
+			cam.moveX(analisarX(x));
 		}
 		
 		if(mover == 2) {
 			int y = cam.getY();
 			y = y + 1;
-			cam.andaY(verificaY(y));
+			cam.moveY(analisarY(y));
 		}
 		
 		if(mover == 3) {
 			int y = cam.getY();
 			y = y - 1;
-			cam.andaY(verificaY(y));
+			cam.moveY(analisarY(y));
 		}
 	
+	}
+	
+		/**
+	 * Função para verificar se o caminhão chegou ao limite do mapa em Y e reseta a coordenada , nesse caso em relação as colunas
+	 * @param y
+	 * @return
+	 */
+	public int analisarY(int y) {
+		if (y >= 59) {
+			y = 1;
+		}
+		if(y <= 0) {
+			y = 58;
+		}
+		return y;
 	}
 
 	/**
@@ -72,7 +88,9 @@ public class Caminhao extends Veiculo{
 	 * @param x
 	 * @return
 	 */
-	public int verificaX(int x) {
+	 
+	 
+	public int analisarX(int x) {
 		if (x >= 29) {
 			x = 1;
 		}
@@ -82,20 +100,7 @@ public class Caminhao extends Veiculo{
 		return x;
 	}
 	
-	/**
-	 * Função para verificar se o caminhão chegou ao limite do mapa em Y e reseta a coordenada , nesse caso em relação as colunas
-	 * @param y
-	 * @return
-	 */
-	public int verificaY(int y) {
-		if (y >= 59) {
-			y = 1;
-		}
-		if(y <= 0) {
-			y = 58;
-		}
-		return y;
-	}
+
 	
 	private int mover; /// Variável para movimentar o caminhão 
 
