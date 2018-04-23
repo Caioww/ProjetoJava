@@ -79,55 +79,7 @@ public class Mundo {
 				}
 			}
 		}
-		/**
-		 * Esse é um comentário a parte, mas que achei legal estar na documentação:
-		 * Parte do código que alteraria a situação de um veículo que não está mais em uma fábrica para false
-		 * Essa parte foi comentada porém não removida pois faz a quantidade de veículos aumentar ao invés de zerar, como no vídeo de exemplo
-		 * Apesar de ser o mais lógico colocar um veículo fora de uma fábrica como false, decidi remover do código final
-		 * Removi pois o funcionamento do vídeo de exemplo se asemelha mais com o código funcionando sem essa parte
-		 * 
-		for(int a = 0; a < ca.size(); a++) {
-			int xa = ca.get(a).getX(); 
-			int ya = ca.get(a).getY();
-			for(int i = 0; i<30; i++) {
-				for(int j = 0; j < 60; j++) {
-					if(i == xa && j == ya) {
-						if(mapa[i][j] != 2 && ca.get(a).getFabrica() == true) {
-							ca.get(a).setFabrica(false);
-						}
-					}
-				}
-			}
-		}
 		
-		for(int a = 0; a < da.size(); a++) {
-			int xa = da.get(a).getX(); 
-			int ya = da.get(a).getY();
-			for(int i = 0; i<30; i++) {
-				for(int j = 0; j < 60; j++) {
-					if(i == xa && j == ya) {
-						if(mapa[i][j] != 2 && da.get(a).getFabrica() == true) {
-							da.get(a).setFabrica(false);
-						}
-					}
-				}
-			}
-		}
-		
-		for(int a = 0; a < da.size(); a++) {
-			int xa = da.get(a).getX(); 
-			int ya = da.get(a).getY();
-			for(int i = 0; i<30; i++) {
-				for(int j = 0; j < 60; j++) {
-					if(i == xa && j == ya) {
-						if(mapa[i][j] != 2 && da.get(a).getFabrica() == true) {
-							da.get(a).setFabrica(false);
-						}
-					}
-				}
-			}
-		}
-		*/
 		/**
 		 * Adicionando os novos veículos no mapa
 		 */
@@ -269,15 +221,15 @@ public class Mundo {
 	 */
 	public void atualizaMundo() {
 		for(int i = 0; i < ca.size(); i++) {
-			ca.get(i).move(ca.get(i));
+			ca.get(i).movimento(ca.get(i));
 		}
 		
 		for (int i = 0; i < da.size(); i ++) {
-			da.get(i).move(da.get(i));
+			da.get(i).movimento(da.get(i));
 		}
 		
 		for (int i = 0; i < ma.size(); i ++) {
-			ma.get(i).move(ma.get(i));
+			ma.get(i).movimento(ma.get(i));
 		}
 		
 		geraVeiculo();
