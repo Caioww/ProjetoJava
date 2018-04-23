@@ -41,7 +41,7 @@ public class Carro extends Veiculo{
 		 *Verificação do random para movimentar o caminhão ,com a utilização de getters 
 		 */
 		if(mover == 0) {
-			int x = car.getX(); /
+			int x = car.getX(); 
 			x = x + 2; 
 			car.andaX(verificaX(x)); 
 		}
