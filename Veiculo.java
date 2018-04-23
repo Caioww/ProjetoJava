@@ -1,7 +1,7 @@
 
 /**
  * 
- * Classe que gera um veículo do tipo Carro
+ * Classe utilizada para gerar Carros
  * 
  * @author Caio
  * 
@@ -15,7 +15,6 @@ public class Veiculo {
 	
 	/**
 	 * Construtor da classe Veículo
-	 * Incializa as váriaveis de veículo
 	 */
 	public Veiculo() {
 	     	x = 0; 
@@ -27,7 +26,7 @@ public class Veiculo {
 	
 	/**
 	 * Construtor da classe Veículo
-	 * Cria veículos com variáveis que são recebidas na chamada das funções de cada veículo específico
+	 * Cria veículos utilizando suas variaveis dependendo de cada chamada de um veiculo em especifico
 	 * 
 	 * @param x 
 	 * @param y
@@ -44,7 +43,7 @@ public class Veiculo {
 	}
 	
 	/**
-	 * Cria um valor aleatório para o X do veículo
+	 * Cria um valor aleatório para o eixo X do veículo
 	 * 
 	 * @return O valor aleatório gerado para X
 	 */
@@ -55,20 +54,20 @@ public class Veiculo {
 	}
 	
 	/**
-	 * Altera o valor de X de um veículo com base no que será passado dentro de cada veículo específico
+	 * O valor de X do veiculo irá mudar dependendo no que sera passado no veiculo especifico
 	 * 
 	 * @param x
 	 */
-	public void andaX(int x) {
+	public void moveX(int x) {
 		this.x = x;
 	}
 	
 	/**
-	 * Altera o valor de Y de um veículo com base no que será passado dentro de cada veículo específico
+	 * O valor de Y do veiculo irá mudar dependendo no que sera passado no veiculo especifico
 	 * 
 	 * @param y
 	 */
-	public void andaY(int y) {
+	public void moveY(int y) {
 		this.y = y;
 	}
 	
@@ -111,12 +110,12 @@ public class Veiculo {
 	}
 	
 	/**
-	 * Verifica se um veiculo esta ou não em uma fabrica dependendo do que é recebido no status
+	 * Verifica se um veiculo esta ou não em uma fabrica dependendo do que é recebido no condicao
 	 * 
-	 * @param status 
+	 * @param condicao 
 	 */
-	public void setFabrica(boolean status) {
-		fabrica = status;
+	public void setFabrica(boolean condicao) {
+		fabrica = condicao;
 	}
 	
 	/**
@@ -129,6 +128,7 @@ public class Veiculo {
 	private int x; /// Coordenada X do veículo
 	private int y; /// Coordenada Y do veículo
 	private int velocidade; /// Variavel para velocidade
-	private boolean fabrica; /// Variavel boolean para verificar se o veiculo está ou não em uma fabrica
 	private String cor; /// Cor do veículo
+	private boolean fabrica; /// Variavel boolean para verificar se o veiculo está ou não em uma fabrica
+	
 }
